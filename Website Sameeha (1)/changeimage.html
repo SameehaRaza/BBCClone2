@@ -1,0 +1,25 @@
+
+<div class="container">
+    <div id="slideshow">
+        <img alt="slideshow" src="http://web.archive.org/web/20140402131524/http://news.bbcimg.co.uk/media/images/73977000/jpg/_73977087_73977086.jpg" id="imgClickAndChange" onclick="changeImage()" />
+    </div>
+</div>
+<script>
+    var imgs = ["http://web.archive.org/web/20140402131524/http://news.bbcimg.co.uk/media/images/73977000/jpg/_73977087_73977086.jpg" , "http://web.archive.org/web/20140402131524/http://news.bbcimg.co.uk/media/images/73970000/jpg/_73970522_73969626.jpg" ];
+
+    function changeImage(dir) {
+        var img = document.getElementById("imgClickAndChange");
+        img.src = imgs[imgs.indexOf(img.src) + (dir || 1)] || imgs[dir ? imgs.length - 1 : 0];
+    }
+
+    document.onkeydown = function(e) {
+        e = e || window.event;
+        if (e.keyCode == '37') {
+            changeImage(-1) //left <- show Prev image
+        } else if (e.keyCode == '39') {
+            // right -> show next image
+            changeImage()
+        }
+    }
+</script>
+    
